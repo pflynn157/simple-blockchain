@@ -2,7 +2,7 @@
 #include <string>
 
 #include "block.hpp"
-#include "sha256.h"
+#include "SHA512.h"
 
 Block::Block(int index, std::string data) {
     this->index = index;
@@ -39,5 +39,5 @@ inline std::string Block::getHash() {
     input += std::to_string(iteration);
     input += std::to_string(currentTime);
     
-    return sha256(input);
+    return hasher.hash(input);
 }

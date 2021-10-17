@@ -11,6 +11,6 @@ public:
     void addBlock(std::string data);
 private:
     int index = 0;
-    int difficulty = 7;
+    int difficulty = 6;
     std::vector<Block *> chain;
 };

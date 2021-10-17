@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "SHA512.h"
+
 class Block {
 public:
     explicit Block(int index, std::string data);
@@ -16,4 +18,5 @@ private:
     std::string data;
     int iteration = 0;
     time_t currentTime;
+    SHA512 hasher;
 };
