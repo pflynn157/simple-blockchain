@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 
 #include "block.hpp"
@@ -22,8 +21,6 @@ void Block::mine(int difficulty) {
         ++iteration;
         hash = getHash();
     } while (hash.substr(0, difficulty) != diffStr);
-    
-    std::cout << "Block mined: " << hash << std::endl;
 }
 
 inline std::string Block::getHash() {

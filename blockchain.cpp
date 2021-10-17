@@ -15,6 +15,8 @@ void Blockchain::addBlock(std::string data) {
     block->prevHash = chain.back()->hash;
     block->mine(difficulty);
     chain.push_back(block);
+    
+    sync();
 }
 
 void Blockchain::addBlock() {
@@ -29,4 +31,12 @@ void Blockchain::addBlock() {
     }
     
     addBlock(data);
+}
+
+void Blockchain::sync() {
+    std::fstream writer("./chain", std::fstream::out | std::fstream::trunc);
+    for (Block *block : chain) {
+        writer << "{" << block->hash << "} -> (" << block->prevHash << ")" << std::endl;
+    }
+    writer.close();
 }
