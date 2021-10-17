@@ -4,10 +4,7 @@
 
 int main(int argc, char **argv) {
     Blockchain chain;
-    
-    chain.addBlock("Block1");
-    chain.addBlock("Block2");
-    chain.addBlock("Block3");
+    for (int i = 0; i<4; i++) chain.addBlock();
     
     return 0;
 }

@@ -18,16 +18,9 @@ void Block::mine(int difficulty) {
     for (int i = 0; i<difficulty; i++)
         diffStr += '1';
         
-    //int show = 0;
-    //std::cout << "HASH: " << diffStr << std::endl;
-        
     do {
         ++iteration;
         hash = getHash();
-        //if (show < 10) {
-        //    std::cout << "CURRENT: " << hash.substr(0, difficulty) << " | " << hash << std::endl;
-        //    ++show;
-        //}
     } while (hash.substr(0, difficulty) != diffStr);
     
     std::cout << "Block mined: " << hash << std::endl;

@@ -1,3 +1,5 @@
+#include <random>
+
 #include "blockchain.hpp"
 
 Blockchain::Blockchain() {
@@ -13,4 +15,18 @@ void Blockchain::addBlock(std::string data) {
     block->prevHash = chain.back()->hash;
     block->mine(difficulty);
     chain.push_back(block);
+}
+
+void Blockchain::addBlock() {
+    std::string data = "";
+    
+    std::random_device rnd;
+    std::mt19937 gen(rnd());
+    std::uniform_int_distribution<> distr(33, 126);
+    
+    for (int i = 0; i<100; i++) {
+        data += (char)distr(gen);
+    }
+    
+    addBlock(data);
 }

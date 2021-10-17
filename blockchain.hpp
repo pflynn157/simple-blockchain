@@ -9,6 +9,7 @@ class Blockchain {
 public:
     Blockchain();
     void addBlock(std::string data);
+    void addBlock();
 private:
     int index = 0;
     int difficulty = 6;
